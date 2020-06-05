@@ -13,9 +13,8 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () =>
       import('./admin_modules/admin_dashboard/admin-dashboard-modules').then(m => m.AdminDashboardModule) },
   { path: 'audits', loadChildren: () =>
-      import('./screen_modules/nfrr/nfrr.module').then(m => m.NfrrModule)},
-  { path: '**', loadChildren: () =>
-      import('./landing_page/landing-page.module').then(m => m.LandingPageModule) },
+      import('./screen_modules/nfrr/nfrr.module').then(m => m.NfrrModule), pathMatch: 'full'},
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({
